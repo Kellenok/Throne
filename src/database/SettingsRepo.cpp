@@ -357,11 +357,9 @@ namespace Configs {
                 else if (key == "warp_private_key") warp_private_key = varValue.toString();
                 else if (key == "warp_public_key") warp_public_key = varValue.toString();
                 else if (key == "warp_ifc_addrs") warp_ifc_addrs = varValue.toStringList();
-                else if (key == "warp_ep") warp_ep = varValue.toString();
+else if (key == "warp_ep") warp_ep = varValue.toString();
                 else if (key == "enable_dns_routing") enable_dns_routing = varValue.toBool();
-        }
-    }
-}
+            }
         }
     }
 
