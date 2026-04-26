@@ -358,32 +358,7 @@ namespace Configs {
                 else if (key == "warp_public_key") warp_public_key = varValue.toString();
                 else if (key == "warp_ifc_addrs") warp_ifc_addrs = varValue.toStringList();
                 else if (key == "warp_ep") warp_ep = varValue.toString();
-                else if (key == "warp_amneziawg") warp_amneziawg = varValue.toBool();
-                else if (key == "warp_Jc") warp_Jc = varValue.toInt();
-                else if (key == "warp_Jmin") warp_Jmin = varValue.toInt();
-                else if (key == "warp_Jmax") warp_Jmax = varValue.toInt();
                 else if (key == "enable_dns_routing") enable_dns_routing = varValue.toBool();
-                else if (key == "inbound_auth") inbound_auth = varValue.toBool();
-else if (key == "inbound_pass") inbound_pass = varValue.toString();
-            else if (key == "warp_S1") warp_S1 = varValue.toInt();
-            else if (key == "warp_S2") warp_S2 = varValue.toInt();
-            else if (key == "warp_S3") warp_S3 = varValue.toInt();
-            else if (key == "warp_S4") warp_S4 = varValue.toInt();
-            else if (key == "warp_H1_min") warp_H1_min = varValue.toInt();
-            else if (key == "warp_H1_max") warp_H1_max = varValue.toInt();
-            else if (key == "warp_H2_min") warp_H2_min = varValue.toInt();
-            else if (key == "warp_H2_max") warp_H2_max = varValue.toInt();
-            else if (key == "warp_H3_min") warp_H3_min = varValue.toInt();
-            else if (key == "warp_H3_max") warp_H3_max = varValue.toInt();
-            else if (key == "warp_H4_min") warp_H4_min = varValue.toInt();
-            else if (key == "warp_H4_max") warp_H4_max = varValue.toInt();
-            else if (key == "warp_I1") warp_I1 = varValue.toString();
-            else if (key == "warp_I2") warp_I2 = varValue.toString();
-            else if (key == "warp_I3") warp_I3 = varValue.toString();
-            else if (key == "warp_I4") warp_I4 = varValue.toString();
-else if (key == "warp_I5") warp_I5 = varValue.toString();
-            else if (key == "allow_stopping_active_profile") allow_stopping_active_profile = varValue.toBool();
-            else if (key == "disable_mixed_inbound") disable_mixed_inbound = varValue.toBool();
         }
     }
 }
@@ -512,27 +487,6 @@ else if (key == "warp_I5") warp_I5 = varValue.toString();
             {"warp_public_key", warp_public_key},
             {"warp_ifc_addrs", warp_ifc_addrs},
             {"warp_ep", warp_ep},
-            {"warp_amneziawg", warp_amneziawg},
-            {"warp_Jc", warp_Jc},
-            {"warp_Jmin", warp_Jmin},
-            {"warp_Jmax", warp_Jmax},
-            {"warp_S1", warp_S1},
-            {"warp_S2", warp_S2},
-            {"warp_S3", warp_S3},
-            {"warp_S4", warp_S4},
-            {"warp_H1_min", warp_H1_min},
-            {"warp_H1_max", warp_H1_max},
-            {"warp_H2_min", warp_H2_min},
-            {"warp_H2_max", warp_H2_max},
-            {"warp_H3_min", warp_H3_min},
-            {"warp_H3_max", warp_H3_max},
-            {"warp_H4_min", warp_H4_min},
-            {"warp_H4_max", warp_H4_max},
-            {"warp_I1", warp_I1},
-            {"warp_I2", warp_I2},
-            {"warp_I3", warp_I3},
-            {"warp_I4", warp_I4},
-            {"warp_I5", warp_I5},
             {"enable_dns_routing", enable_dns_routing},
             {"inbound_auth", inbound_auth},
             {"inbound_user", inbound_user},
