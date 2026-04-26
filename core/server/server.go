@@ -397,16 +397,6 @@ func (s *server) QueryStats(ctx context.Context, in *gen.EmptyReq) (out *gen.Que
 				err = E.New("nil endpoint manager")
 				return
 			}
-			for _, ob := range outbounds.Outbounds() {
-				u, d := cApi.TrafficManager().TotalOutbound(ob.Tag())
-				out.Ups[ob.Tag()] = u
-				out.Downs[ob.Tag()] = d
-			}
-			for _, ep := range endpoints.Endpoints() {
-				u, d := cApi.TrafficManager().TotalOutbound(ep.Tag())
-				out.Ups[ep.Tag()] = u
-				out.Downs[ep.Tag()] = d
-			}
 		}
 	}
 	return
