@@ -188,7 +188,7 @@ namespace Configs {
         QString warp_ep = "";
 
         // AmneziaWG
-        bool warp_amneziawg = false;
+        bool warp_amneziawg = true;
         int warp_Jc = 0;
         int warp_Jmin = 64;
         int warp_Jmax = 1024;
