@@ -379,12 +379,6 @@ func (s *server) QueryStats(ctx context.Context, in *gen.EmptyReq) (out *gen.Que
 	if boxInstance != nil {
 		clash := service.FromContext[adapter.ClashServer](boxInstance.Context())
 		if clash != nil {
-			cApi, ok := clash.(*clashapi.Server)
-			if !ok {
-				log.Println("Failed to assert clash server")
-				err = E.New("invalid clash server type")
-				return
-			}
 			outbounds := service.FromContext[adapter.OutboundManager](boxInstance.Context())
 			if outbounds == nil {
 				log.Println("Failed to get outbound manager")
