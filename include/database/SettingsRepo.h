@@ -187,6 +187,29 @@ namespace Configs {
         QStringList warp_ifc_addrs = {};
         QString warp_ep = "";
 
+        // AmneziaWG
+        bool warp_amneziawg = false;
+        int warp_Jc = 0;
+        int warp_Jmin = 64;
+        int warp_Jmax = 1024;
+        int warp_S1 = 0;
+        int warp_S2 = 0;
+        int warp_S3 = 0;
+        int warp_S4 = 0;
+        int warp_H1_min = 0;
+        int warp_H1_max = 0;
+        int warp_H2_min = 0;
+        int warp_H2_max = 0;
+        int warp_H3_min = 0;
+        int warp_H3_max = 0;
+        int warp_H4_min = 0;
+        int warp_H4_max = 0;
+        QString warp_I1 = "";
+        QString warp_I2 = "";
+        QString warp_I3 = "";
+        QString warp_I4 = "";
+        QString warp_I5 = "";
+
         // Hijack
         bool enable_dns_server = false;
         bool dns_server_listen_lan = false;

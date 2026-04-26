@@ -156,6 +156,38 @@ namespace Configs {
         if (object.contains("system")) system = object["system"].toBool();
         if (object.contains("worker_count")) worker_count = object["worker_count"].toInt();
         if (object.contains("udp_timeout")) udp_timeout = object["udp_timeout"].toString();
+
+        // AmneziaWG
+        if (object.contains("amneziawg")) amneziawg = object["amneziawg"].toBool();
+        if (object.contains("Jc")) Jc = object["Jc"].toInt();
+        if (object.contains("Jmin")) Jmin = object["Jmin"].toInt();
+        if (object.contains("Jmax")) Jmax = object["Jmax"].toInt();
+        if (object.contains("S1")) S1 = object["S1"].toInt();
+        if (object.contains("S2")) S2 = object["S2"].toInt();
+        if (object.contains("S3")) S3 = object["S3"].toInt();
+        if (object.contains("S4")) S4 = object["S4"].toInt();
+        if (object.contains("H1")) {
+            auto h1 = object["H1"].toArray();
+            if (h1.size() >= 2) { H1_min = h1[0].toInt(); H1_max = h1[1].toInt(); }
+        }
+        if (object.contains("H2")) {
+            auto h2 = object["H2"].toArray();
+            if (h2.size() >= 2) { H2_min = h2[0].toInt(); H2_max = h2[1].toInt(); }
+        }
+        if (object.contains("H3")) {
+            auto h3 = object["H3"].toArray();
+            if (h3.size() >= 2) { H3_min = h3[0].toInt(); H3_max = h3[1].toInt(); }
+        }
+        if (object.contains("H4")) {
+            auto h4 = object["H4"].toArray();
+            if (h4.size() >= 2) { H4_min = h4[0].toInt(); H4_max = h4[1].toInt(); }
+        }
+        if (object.contains("I1")) I1 = object["I1"].toString();
+        if (object.contains("I2")) I2 = object["I2"].toString();
+        if (object.contains("I3")) I3 = object["I3"].toString();
+        if (object.contains("I4")) I4 = object["I4"].toString();
+        if (object.contains("I5")) I5 = object["I5"].toString();
+
         return true;
     }
 
@@ -195,7 +227,28 @@ namespace Configs {
         if (system) object["system"] = system;
         if (worker_count > 0) object["worker_count"] = worker_count;
         if (!udp_timeout.isEmpty()) object["udp_timeout"] = udp_timeout;
-        
+
+        // AmneziaWG
+        if (amneziawg) {
+            object["amneziawg"] = true;
+            if (Jc > 0) object["Jc"] = Jc;
+            if (Jmin > 0) object["Jmin"] = Jmin;
+            if (Jmax > 0) object["Jmax"] = Jmax;
+            if (S1 > 0) object["S1"] = S1;
+            if (S2 > 0) object["S2"] = S2;
+            if (S3 > 0) object["S3"] = S3;
+            if (S4 > 0) object["S4"] = S4;
+            if (H1_min > 0 || H1_max > 0) object["H1"] = QJsonArray({H1_min, H1_max});
+            if (H2_min > 0 || H2_max > 0) object["H2"] = QJsonArray({H2_min, H2_max});
+            if (H3_min > 0 || H3_max > 0) object["H3"] = QJsonArray({H3_min, H3_max});
+            if (H4_min > 0 || H4_max > 0) object["H4"] = QJsonArray({H4_min, H4_max});
+            if (!I1.isEmpty()) object["I1"] = I1;
+            if (!I2.isEmpty()) object["I2"] = I2;
+            if (!I3.isEmpty()) object["I3"] = I3;
+            if (!I4.isEmpty()) object["I4"] = I4;
+            if (!I5.isEmpty()) object["I5"] = I5;
+        }
+
         auto peerObj = peer->ExportToJson();
         if (!peerObj.isEmpty()) {
             object["peers"] = QJsonArray({peerObj});
@@ -216,6 +269,27 @@ namespace Configs {
         if (system) object["system"] = system;
         if (worker_count > 0) object["worker_count"] = worker_count;
         if (!udp_timeout.isEmpty()) object["udp_timeout"] = udp_timeout;
+
+        // AmneziaWG
+        if (amneziawg) {
+            object["amneziawg"] = true;
+            if (Jc > 0) object["Jc"] = Jc;
+            if (Jmin > 0) object["Jmin"] = Jmin;
+            if (Jmax > 0) object["Jmax"] = Jmax;
+            if (S1 > 0) object["S1"] = S1;
+            if (S2 > 0) object["S2"] = S2;
+            if (S3 > 0) object["S3"] = S3;
+            if (S4 > 0) object["S4"] = S4;
+            if (H1_min > 0 || H1_max > 0) object["H1"] = QJsonArray({H1_min, H1_max});
+            if (H2_min > 0 || H2_max > 0) object["H2"] = QJsonArray({H2_min, H2_max});
+            if (H3_min > 0 || H3_max > 0) object["H3"] = QJsonArray({H3_min, H3_max});
+            if (H4_min > 0 || H4_max > 0) object["H4"] = QJsonArray({H4_min, H4_max});
+            if (!I1.isEmpty()) object["I1"] = I1;
+            if (!I2.isEmpty()) object["I2"] = I2;
+            if (!I3.isEmpty()) object["I3"] = I3;
+            if (!I4.isEmpty()) object["I4"] = I4;
+            if (!I5.isEmpty()) object["I5"] = I5;
+        }
 
         auto peerObj = peer->Build().object;
         if (!peerObj.isEmpty()) {

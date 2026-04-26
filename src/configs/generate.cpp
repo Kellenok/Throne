@@ -101,6 +101,31 @@ namespace Configs {
         outbound->peer = peer;
         outbound->mtu = 1280;
 
+        // AmneziaWG
+        if (dataManager->settingsRepo->warp_amneziawg) {
+            outbound->amneziawg = true;
+            outbound->Jc = dataManager->settingsRepo->warp_Jc;
+            outbound->Jmin = dataManager->settingsRepo->warp_Jmin;
+            outbound->Jmax = dataManager->settingsRepo->warp_Jmax;
+            outbound->S1 = dataManager->settingsRepo->warp_S1;
+            outbound->S2 = dataManager->settingsRepo->warp_S2;
+            outbound->S3 = dataManager->settingsRepo->warp_S3;
+            outbound->S4 = dataManager->settingsRepo->warp_S4;
+            outbound->H1_min = dataManager->settingsRepo->warp_H1_min;
+            outbound->H1_max = dataManager->settingsRepo->warp_H1_max;
+            outbound->H2_min = dataManager->settingsRepo->warp_H2_min;
+            outbound->H2_max = dataManager->settingsRepo->warp_H2_max;
+            outbound->H3_min = dataManager->settingsRepo->warp_H3_min;
+            outbound->H3_max = dataManager->settingsRepo->warp_H3_max;
+            outbound->H4_min = dataManager->settingsRepo->warp_H4_min;
+            outbound->H4_max = dataManager->settingsRepo->warp_H4_max;
+            outbound->I1 = dataManager->settingsRepo->warp_I1;
+            outbound->I2 = dataManager->settingsRepo->warp_I2;
+            outbound->I3 = dataManager->settingsRepo->warp_I3;
+            outbound->I4 = dataManager->settingsRepo->warp_I4;
+            outbound->I5 = dataManager->settingsRepo->warp_I5;
+        }
+
         warpProfile->outbound = outbound;
         return warpProfile;
     }

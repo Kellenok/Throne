@@ -176,6 +176,36 @@ DialogManageRoutes::DialogManageRoutes(QWidget *parent) : QDialog(parent), ui(ne
     ui->warp_public_key->setText(Configs::dataManager->settingsRepo->warp_public_key);
     ui->warp_ifc_addrs->setText(Configs::dataManager->settingsRepo->warp_ifc_addrs.join(","));
     ui->warp_ep->setText(Configs::dataManager->settingsRepo->warp_ep);
+
+    // AmneziaWG
+    ui->warp_amneziawg->setChecked(Configs::dataManager->settingsRepo->warp_amneziawg);
+    ui->widget_amneziawg->setVisible(Configs::dataManager->settingsRepo->warp_amneziawg);
+    ui->warp_Jc->setValue(Configs::dataManager->settingsRepo->warp_Jc);
+    ui->warp_Jmin->setValue(Configs::dataManager->settingsRepo->warp_Jmin);
+    ui->warp_Jmax->setValue(Configs::dataManager->settingsRepo->warp_Jmax);
+    ui->warp_S1->setValue(Configs::dataManager->settingsRepo->warp_S1);
+    ui->warp_S2->setValue(Configs::dataManager->settingsRepo->warp_S2);
+    ui->warp_S3->setValue(Configs::dataManager->settingsRepo->warp_S3);
+    ui->warp_S4->setValue(Configs::dataManager->settingsRepo->warp_S4);
+    ui->warp_H1_min->setValue(Configs::dataManager->settingsRepo->warp_H1_min);
+    ui->warp_H1_max->setValue(Configs::dataManager->settingsRepo->warp_H1_max);
+    ui->warp_H2_min->setValue(Configs::dataManager->settingsRepo->warp_H2_min);
+    ui->warp_H2_max->setValue(Configs::dataManager->settingsRepo->warp_H2_max);
+    ui->warp_H3_min->setValue(Configs::dataManager->settingsRepo->warp_H3_min);
+    ui->warp_H3_max->setValue(Configs::dataManager->settingsRepo->warp_H3_max);
+    ui->warp_H4_min->setValue(Configs::dataManager->settingsRepo->warp_H4_min);
+    ui->warp_H4_max->setValue(Configs::dataManager->settingsRepo->warp_H4_max);
+    ui->warp_I1->setText(Configs::dataManager->settingsRepo->warp_I1);
+    ui->warp_I2->setText(Configs::dataManager->settingsRepo->warp_I2);
+    ui->warp_I3->setText(Configs::dataManager->settingsRepo->warp_I3);
+    ui->warp_I4->setText(Configs::dataManager->settingsRepo->warp_I4);
+    ui->warp_I5->setText(Configs::dataManager->settingsRepo->warp_I5);
+
+    // Toggle AmneziaWG visibility
+    connect(ui->warp_amneziawg, &QCheckBox::toggled, this, [=,this](bool checked) {
+        ui->widget_amneziawg->setVisible(checked);
+    });
+
     connect(ui->warp_autogen, &QPushButton::clicked, this, [=,this] {
         auto originalText = ui->warp_autogen->text();
         ui->warp_autogen->setText("Getting keypair...");
@@ -268,6 +298,29 @@ void DialogManageRoutes::accept() {
     Configs::dataManager->settingsRepo->warp_ifc_addrs = SplitAndTrim(ui->warp_ifc_addrs->text(), ",", false);
     Configs::dataManager->settingsRepo->warp_private_key = ui->warp_private_key->text();
     Configs::dataManager->settingsRepo->warp_public_key = ui->warp_public_key->text();
+
+    // AmneziaWG
+    Configs::dataManager->settingsRepo->warp_amneziawg = ui->warp_amneziawg->isChecked();
+    Configs::dataManager->settingsRepo->warp_Jc = ui->warp_Jc->value();
+    Configs::dataManager->settingsRepo->warp_Jmin = ui->warp_Jmin->value();
+    Configs::dataManager->settingsRepo->warp_Jmax = ui->warp_Jmax->value();
+    Configs::dataManager->settingsRepo->warp_S1 = ui->warp_S1->value();
+    Configs::dataManager->settingsRepo->warp_S2 = ui->warp_S2->value();
+    Configs::dataManager->settingsRepo->warp_S3 = ui->warp_S3->value();
+    Configs::dataManager->settingsRepo->warp_S4 = ui->warp_S4->value();
+    Configs::dataManager->settingsRepo->warp_H1_min = ui->warp_H1_min->value();
+    Configs::dataManager->settingsRepo->warp_H1_max = ui->warp_H1_max->value();
+    Configs::dataManager->settingsRepo->warp_H2_min = ui->warp_H2_min->value();
+    Configs::dataManager->settingsRepo->warp_H2_max = ui->warp_H2_max->value();
+    Configs::dataManager->settingsRepo->warp_H3_min = ui->warp_H3_min->value();
+    Configs::dataManager->settingsRepo->warp_H3_max = ui->warp_H3_max->value();
+    Configs::dataManager->settingsRepo->warp_H4_min = ui->warp_H4_min->value();
+    Configs::dataManager->settingsRepo->warp_H4_max = ui->warp_H4_max->value();
+    Configs::dataManager->settingsRepo->warp_I1 = ui->warp_I1->text();
+    Configs::dataManager->settingsRepo->warp_I2 = ui->warp_I2->text();
+    Configs::dataManager->settingsRepo->warp_I3 = ui->warp_I3->text();
+    Configs::dataManager->settingsRepo->warp_I4 = ui->warp_I4->text();
+    Configs::dataManager->settingsRepo->warp_I5 = ui->warp_I5->text();
 
     //
     QStringList msg{"UpdateConfigs::dataManager->settingsRepo"};
